@@ -1,2 +1,9 @@
-<h1>Articles#index</h1>
+<h1>Article</h1>
 <p>Article action in article controller</p>
+<ul>
+  <% @articles.each do |article| %>
+  <li>
+    <%= article.title %> <%= article.body %>
+  </li>
+  <% end %>
+</ul>
