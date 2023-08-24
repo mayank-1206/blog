@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+body { 
+  background: rgb(180, 180, 190) url("https://jan.ucc.nau.edu/lrm22/pixels2bytes/balloons.jpg") no-repeat fixed right top;
+}
