@@ -1,0 +1,21 @@
+<h1>Products</h1>
+<%= form_with model: @product do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br>
+  
+  <%= form.label :name_confirm %><br>
+  <%= form.text_field :name_confirm %><br>
+
+  <%= form.label :description %><br>
+  <%= form.text_field :description %><br>
+
+  <%= form.submit %>
+<% end %>
+
+<ul>
+  <% @products.each do |product| %>
+     <li>
+      <%= link_to product.name, product%>
+    </li>
+  <% end %>  
+</ul>
