@@ -2,8 +2,12 @@ class ArticlesController < ApplicationController
 
   http_basic_authenticate_with name: "blog", password: "secret", except: [:index]
 
+  #Active_Record_Querying
   def index
-    @articles = Article.all
+    #@articles = Article.where(status: "public").left_outer_joins(:comments).distinct 
+    #@articles = Article.order(created_at: :desc) #("created_at DESC")
+    #@articles = Article.includes(:comments)limit(10)
+    @articles = Article.all  
   end
 
   def show
