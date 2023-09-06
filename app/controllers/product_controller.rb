@@ -4,17 +4,17 @@ class ProductController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
   end
 
   def new
-    @product = Product.new
+    @products = Product.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @products = Product.new(product_params)
 
-    if @product.save
+    if @products.save
       redirect_to @product
     else
       render :new

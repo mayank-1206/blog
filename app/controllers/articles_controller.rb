@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     #@articles = Article.where(status: "public").left_outer_joins(:comments).distinct 
     #@articles = Article.order(created_at: :desc) #("created_at DESC")
     #@articles = Article.includes(:comments)limit(10)
-    @articles = Article.all  
+    @articles = Article.all
   end
 
   def show
