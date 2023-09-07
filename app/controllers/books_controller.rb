@@ -1,7 +1,13 @@
 class BooksController < ApplicationController
   layout "main" ,except: [:index]
+  
   def index
     @book = Book.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render xml: @book }
+      format.json { render json: @book }
+    end
   end
 
   def show
