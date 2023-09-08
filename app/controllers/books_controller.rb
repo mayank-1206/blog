@@ -1,13 +1,17 @@
 class BooksController < ApplicationController
+  USERS = { "lifo" => "world" }
+
+  before_action :authenticate 
+
   layout "main" ,except: [:index]
   
   def index
     @book = Book.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @book }
-      format.json { render json: @book }
-    end
+    #respond_to do |format|
+      #format.html # index.html.erb
+      #format.xml  { render xml: @book }
+      #format.json { render json: @book }
+    #end
   end
 
   def show
@@ -53,5 +57,11 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:title, :content)
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_digest do |username|
+      USERS[username]
+    end
   end
 end

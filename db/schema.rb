@@ -10,20 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_104744) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_28_132820) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
-  end
-
-  create_table "books", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title"
-    t.text "content"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -36,58 +29,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_104744) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "example_migrations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "view"
-  end
-
-  create_table "forums", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "poly_comments", force: :cascade do |t|
-    t.text "content"
-    t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_poly_comments_on_commentable"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.string "part_number"
+    t.string "port"
+    t.index ["part_number"], name: "index_products_on_part_number"
   end
-
-  create_table "table_distributors_in_example_migrations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  
 
   add_foreign_key "comments", "articles"
 end
