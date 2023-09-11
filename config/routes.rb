@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   #root 'products#index'
   #resources :products
   root 'books#index'
-  resources :books do
-    member do
-      get 'show'
-    end
-  end
+  resources :books 
+  #do
+   # member do
+    #  get 'show'
+    #end
+  #end
   #root 'sample#index'
   #resources :articles do 
    # resources :comments

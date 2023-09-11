@@ -33,6 +33,7 @@ class BooksController < ApplicationController
 
     if @book.save
       redirect_to  @book
+      UserMailer.with(user: @book).welcome_email.deliver_now
     else
       render :new, status: :unprocessable_entity
     end
