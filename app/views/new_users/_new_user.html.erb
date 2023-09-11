@@ -1,0 +1,24 @@
+<div id="<%= dom_id new_user %>">
+  <p>
+    <strong>Name:</strong>
+    <%= new_user.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= new_user.email %>
+  </p>
+
+  <p>
+    <strong>Phone number:</strong>
+    <%= new_user.phone_number %>
+  </p>
+
+  <p>
+    <strong>Profile photo:</strong>
+    <% if new_user.profile_photo.attached? %>
+    <image src="<%= (url_for(new_user.profile_photo))%>">
+    <% end %>
+  </p>
+
+</div>

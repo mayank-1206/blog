@@ -1,0 +1,10 @@
+<h2>New object</h2>
+
+<%= form_for @obj do |f| %>
+  <%= f.label :objname %>
+  <%= f.text_field :objname %>
+  <%= f.label :objpassword %>
+  <%= f.password_field :objpassword %>
+  <%= form.file_field :avatar %>
+  <%= f.submit "Create Account" %>
+<% end %>

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :new_users
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/") 
   #root 'products#index'
   #resources :products
-  root 'books#index'
-  resources :books 
+  #root 'books#index'
+  #resources :books 
   #do
    # member do
     #  get 'show'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   #resources :articles do 
    # resources :comments
   #end
-
+  root 'new_users#index'
   #root "sessions#home"
   #resources :users, only: [:new, :create, :edit, :update, :destroy]
   #get '/login', to: 'sessions#login'
